@@ -1,17 +1,17 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './nest-default-prisma/app.controller';
+import { AppController } from './usecases/nest-default-prisma/app.controller';
 import { AppService } from './app.service';
-import { PostService } from './nest-default-prisma/post.service';
+import { PostService } from './usecases/nest-default-prisma/post.service';
 import { PrismaService } from './prisma.service';
-import { UserService } from './nest-default-prisma/user.service';
-import { DownloadDocxController } from './download-docx/download-docx.controller';
-import { DownloadDocxUsecase } from './download-docx/download-docx.usecase';
-import { DownloadPdfController } from './download-pdf/download-pdf.controller';
-import { DownloadPdfUsecase } from './download-pdf/download-pdf.usecase';
-import { DownloadXlsxUsecase } from './download-xlsx/download-xlsx.usecase';
-import { DownloadXlsxController } from './download-xlsx/download-xlsx.controller';
-import { UploadXlsxController } from './upload-xlsx/upload-xlsx.controller';
-import { UploadXlsxUsecase } from './upload-xlsx/upload-xlsx.usecase';
+import { UserService } from './usecases/nest-default-prisma/user.service';
+import { DownloadDocxController } from './usecases/download-docx/download-docx.controller';
+import { DownloadDocxUsecase } from './usecases/download-docx/download-docx.usecase';
+import { DownloadPdfController } from './usecases/download-pdf/download-pdf.controller';
+import { DownloadPdfUsecase } from './usecases/download-pdf/download-pdf.usecase';
+import { DownloadXlsxUsecase } from './usecases/download-xlsx/download-xlsx.usecase';
+import { DownloadXlsxController } from './usecases/download-xlsx/download-xlsx.controller';
+import { UploadXlsxController } from './usecases/upload-xlsx/upload-xlsx.controller';
+import { UploadXlsxUsecase } from './usecases/upload-xlsx/upload-xlsx.usecase';
 
 @Module({
   imports: [],

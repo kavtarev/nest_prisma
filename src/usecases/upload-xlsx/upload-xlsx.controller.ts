@@ -5,8 +5,10 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { UploadXlsxUsecase } from './upload-xlsx.usecase';
+import { FileSizeValidationPipe } from 'src/pipes/file-size-validation.pipe';
+import { MimeTypeValidationPipe } from 'src/pipes/mime-type-validation.pipe';
 import * as XLSX from 'xlsx';
+import { UploadXlsxUsecase } from './upload-xlsx.usecase';
 
 @Controller()
 export class UploadXlsxController {
@@ -14,7 +16,15 @@ export class UploadXlsxController {
 
   @Post('upload-xlsx')
   @UseInterceptors(FileInterceptor('file'))
-  uploadFile(@UploadedFile() file: any) {
+  uploadFile(
+    @UploadedFile(
+      new FileSizeValidationPipe(100_000),
+      new MimeTypeValidationPipe([
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      ]),
+    )
+    file: any,
+  ) {
     const workbook = XLSX.read(file.buffer, {
       type: 'buffer',
       cellDates: true,
