@@ -12,6 +12,8 @@ import { DownloadXlsxUsecase } from './usecases/download-xlsx/download-xlsx.usec
 import { DownloadXlsxController } from './usecases/download-xlsx/download-xlsx.controller';
 import { UploadXlsxController } from './usecases/upload-xlsx/upload-xlsx.controller';
 import { UploadXlsxUsecase } from './usecases/upload-xlsx/upload-xlsx.usecase';
+import { UploadCsvUsecase } from './usecases/upload-csv/upload-csv.usecase';
+import { UploadCsvController } from './usecases/upload-csv/upload-csv.controller';
 
 @Module({
   imports: [],
@@ -21,6 +23,7 @@ import { UploadXlsxUsecase } from './usecases/upload-xlsx/upload-xlsx.usecase';
     DownloadPdfController,
     DownloadXlsxController,
     UploadXlsxController,
+    UploadCsvController,
   ],
   providers: [
     AppService,
@@ -31,6 +34,7 @@ import { UploadXlsxUsecase } from './usecases/upload-xlsx/upload-xlsx.usecase';
     DownloadPdfUsecase,
     DownloadXlsxUsecase,
     UploadXlsxUsecase,
+    UploadCsvUsecase,
   ],
 })
 export class AppModule {}
