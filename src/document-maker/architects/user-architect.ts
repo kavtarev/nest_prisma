@@ -1,3 +1,4 @@
+import { Colors } from '../helpers/colors';
 import { AbstractArchitect } from './abstract.architect';
 
 export class UserArchitect extends AbstractArchitect {
@@ -11,7 +12,7 @@ export class UserArchitect extends AbstractArchitect {
       .addEmptyLine()
       .addDefaultLine(`Your email: ${this.user.email} has been deleted`)
       .addEmptyLine()
-      .setColor('red')
+      .setColor(Colors.ORANGE)
       .setFontSize(5)
       .addCustomLine(`All the best`)
 

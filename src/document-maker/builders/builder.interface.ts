@@ -1,4 +1,5 @@
 import stream from 'stream';
+import { Colors } from '../helpers/colors';
 
 export interface IBuilder {
   addTitle: (title: string) => IBuilder;
@@ -6,7 +7,7 @@ export interface IBuilder {
   addCustomLine: (line: string) => IBuilder;
   addEmptyLine: () => IBuilder;
   setFontSize: (size: number) => IBuilder;
-  setColor: (color: string) => IBuilder;
+  setColor: (color: Colors) => IBuilder;
   setFont: (font: string) => IBuilder;
   build: () => void;
   getDocument: () => stream.Readable;

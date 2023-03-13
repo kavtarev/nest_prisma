@@ -1,6 +1,7 @@
 import { IBuilder } from './builder.interface';
 import * as PDFDocument from 'pdfkit';
 import stream from 'stream';
+import { Colors } from '../helpers/colors';
 
 export class PDFBuilder implements IBuilder {
   doc = new PDFDocument();
@@ -8,14 +9,14 @@ export class PDFBuilder implements IBuilder {
   addTitle(title: string) {
     this.doc
       .fontSize(25)
-      .fillColor('#34B')
+      .fillColor(Colors.DARK_BLUE)
       .font('Helvetica-BoldOblique')
       .text(title);
     return this;
   }
 
   addDefaultLine(line: string) {
-    this.doc.fontSize(15).fillColor('#2ee').font('Times-Roman').text(line);
+    this.doc.fontSize(15).fillColor(Colors.GREY).font('Times-Roman').text(line);
     return this;
   }
 
@@ -34,7 +35,7 @@ export class PDFBuilder implements IBuilder {
     return this;
   }
 
-  setColor(color: string) {
+  setColor(color: Colors) {
     this.doc.fillColor(color);
     return this;
   }
