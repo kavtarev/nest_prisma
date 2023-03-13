@@ -10,15 +10,11 @@ export class DownloadPdfController {
 
   @Post('download-pdf')
   async execute() {
-    const doc = new PDFDocument();
+    const arch = this.usecase.execute();
 
-    doc.fontSize(25).text('Some text with an embedded font!', 100, 100);
-
-    doc.end();
-
-    return new StreamableFile(doc as unknown as stream.Readable, {
+    return new StreamableFile(arch.getDocument(), {
       type: 'application/pdf',
-      disposition: `attachment; filename="report.docx"`,
+      disposition: `attachment; filename="report.pdf"`,
     });
   }
 }
