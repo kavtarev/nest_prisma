@@ -5,12 +5,10 @@ import { IArchitect } from './architect.interface';
 export abstract class AbstractArchitect implements IArchitect {
   protected builder: IBuilder;
 
+  abstract build();
+
   setBuilder(builder: IBuilder) {
     this.builder = builder;
-  }
-
-  build() {
-    this.builder.build();
   }
 
   getDocument() {
