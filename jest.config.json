@@ -1,0 +1,18 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": "src",
+  "globals": {
+    "ts-jest": {
+      "tsconfig": "tsconfig.json",
+      "isolatedModules": true
+    }
+  },
+  "transform": {
+    "^.+\\.ts$": "ts-jest"
+  },
+ 
+  "testEnvironment": "node",
+  "watchPathIgnorePatterns": [".*node_modules.*"],
+  "resetMocks": true,
+  "setupFiles": ["<rootDir>/test/meta.ts"]
+}

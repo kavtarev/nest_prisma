@@ -5,8 +5,8 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { FileSizeValidationPipe } from 'src/pipes/file-size-validation.pipe';
-import { MimeTypeValidationPipe } from 'src/pipes/mime-type-validation.pipe';
+import { FileSizeValidationPipe } from './../../pipes/file-size-validation.pipe';
+import { MimeTypeValidationPipe } from './../../pipes/mime-type-validation.pipe';
 import * as XLSX from 'xlsx';
 import { UploadXlsxUsecase } from './upload-xlsx.usecase';
 

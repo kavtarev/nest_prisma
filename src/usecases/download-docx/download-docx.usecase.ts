@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { UserArchitect } from 'src/document-maker/architects/user-architect';
-import { DOCXBuilder } from 'src/document-maker/builders/DOCXBuilder';
+import { UserArchitect } from './../../document-maker/architects/user-architect';
+import { DOCXBuilder } from './../../document-maker/builders/DOCXBuilder';
 import { PrismaService } from '../../prisma.service';
 
 @Injectable()
