@@ -15,7 +15,23 @@ async function hui() {
   //   console.log(223);
   // }
 }
-hui();
+// hui();
+
+const wrightStream = createWriteStream('boo.txt', {
+  encoding: 'utf-8',
+  highWaterMark: 1,
+});
+wrightStream.write('some');
+wrightStream.write('some2');
+wrightStream.write('some3');
+
+wrightStream.on('finish', () => {
+  console.log('All writes are now complete.');
+});
+wrightStream.on('drain', (chunk) => {
+  console.log(666, chunk);
+});
+wrightStream.end('This is the end\n');
 // const { finished } = require('stream/promises');
 // const { Readable } = require('stream');
 

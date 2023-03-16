@@ -31,15 +31,15 @@ async function hui() {
 }
 
 hui();
-// console.log(`Received: ${readable.read().toString()}`);
+console.log(`Received: ${readable.read().toString()}`);
 
-// class myWritable extends Writable {
-//   async _write(chunk, cod, cb) {
-//     await appendFile('some.txt', chunk.toString());
-//     cb();
-//   }
-// }
+class myWritable extends Writable {
+  async _write(chunk, cod, cb) {
+    await appendFile('some.txt', chunk.toString());
+    cb();
+  }
+}
 
-// const writable = new myWritable({ highWaterMark: 2 });
+const writable = new myWritable({ highWaterMark: 2 });
 
-// readable.pipe(writable);
+readable.pipe(writable);

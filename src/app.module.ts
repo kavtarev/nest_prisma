@@ -14,6 +14,10 @@ import { UploadXlsxController } from './usecases/upload-xlsx/upload-xlsx.control
 import { UploadXlsxUsecase } from './usecases/upload-xlsx/upload-xlsx.usecase';
 import { UploadCsvUsecase } from './usecases/upload-csv/upload-csv.usecase';
 import { UploadCsvController } from './usecases/upload-csv/upload-csv.controller';
+import { MinioUploadUsecase } from './usecases/minio-upload/minio-upload.usecase';
+import { MinioUploadController } from './usecases/minio-upload/minio-upload.controller';
+import { MinioDownloadController } from './usecases/minio-download/minio-download.controller';
+import { MinioDownloadUsecase } from './usecases/minio-download/minio-download.usecase';
 
 @Module({
   imports: [],
@@ -24,6 +28,8 @@ import { UploadCsvController } from './usecases/upload-csv/upload-csv.controller
     DownloadXlsxController,
     UploadXlsxController,
     UploadCsvController,
+    MinioUploadController,
+    MinioDownloadController,
   ],
   providers: [
     AppService,
@@ -35,6 +41,8 @@ import { UploadCsvController } from './usecases/upload-csv/upload-csv.controller
     DownloadXlsxUsecase,
     UploadXlsxUsecase,
     UploadCsvUsecase,
+    MinioUploadUsecase,
+    MinioDownloadUsecase,
   ],
 })
 export class AppModule {}
