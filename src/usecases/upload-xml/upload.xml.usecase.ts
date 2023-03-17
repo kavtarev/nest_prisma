@@ -8,7 +8,7 @@ export class UploadXmlUsecase {
       if (err) {
         console.log(44444, err);
       }
-      console.log(data);
+      console.log(data.Response.Request[0]);
     });
   }
 }
