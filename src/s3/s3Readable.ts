@@ -50,10 +50,6 @@ export class S3Readable extends Readable {
       this.destroy();
     });
 
-    bytes.on('close', (data) => {
-      console.log(234, data);
-    });
-
     this.current += this.highWaterMark;
   }
 }
