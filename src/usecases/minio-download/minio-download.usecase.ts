@@ -9,7 +9,7 @@ export class MinioDownloadUsecase {
     this.s3Service = new S3Service();
   }
 
-  async uploadFile(): Promise<any> {
+  async downloadFile(): Promise<any> {
     return this.s3Service.download();
   }
 }

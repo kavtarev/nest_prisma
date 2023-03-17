@@ -1,7 +1,11 @@
+import { Injectable } from '@nestjs/common';
 import { S3 } from 'aws-sdk';
-import { createWriteStream } from 'fs';
+import { Request } from 'express';
+import { createReadStream, createWriteStream } from 'fs';
+import { PassThrough } from 'stream';
 import { S3Readable } from './s3Readable';
 
+@Injectable()
 export class S3Service {
   s3instance: S3;
   constructor() {
@@ -15,20 +19,30 @@ export class S3Service {
   }
 
   async upload(file: any) {
-    try {
-      //return {} or throw error
-      await this.s3instance.headBucket({ Bucket: 'test' }).promise();
-    } catch (e) {
-      await this.s3instance.createBucket({ Bucket: 'test' }).promise();
-    } finally {
-      this.s3instance
-        .upload({
-          Bucket: 'test',
-          Key: 'test',
-          Body: file.buffer.toString(),
-        })
-        .promise();
-    }
+    await this.checkBucket();
+
+    return this.s3instance
+      .upload({
+        Bucket: 'test',
+        Key: 'test-2',
+        Body: file.buffer.toString(),
+      })
+      .promise();
+  }
+
+  async uploadStream(req: Request) {
+    await this.checkBucket();
+    const pass = new PassThrough();
+
+    const stream = createReadStream('some.html', 'utf-8');
+    stream.pipe(pass);
+    return this.s3instance
+      .upload({
+        Bucket: 'test',
+        Key: 'test-3',
+        Body: pass,
+      })
+      .promise();
   }
 
   async download() {
@@ -61,5 +75,14 @@ export class S3Service {
     const writeStream = createWriteStream('boo.txt', { encoding: 'utf-8' });
 
     readStream.pipe(writeStream);
+  }
+
+  async checkBucket() {
+    try {
+      //return {} or throw error
+      await this.s3instance.headBucket({ Bucket: 'test' }).promise();
+    } catch (e) {
+      await this.s3instance.createBucket({ Bucket: 'test' }).promise();
+    }
   }
 }

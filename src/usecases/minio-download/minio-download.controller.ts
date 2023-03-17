@@ -6,8 +6,8 @@ export class MinioDownloadController {
   constructor(private readonly appService: MinioDownloadUsecase) {}
 
   @Post('minio-download')
-  async uploadFile(): Promise<any> {
-    const result = await this.appService.uploadFile();
+  async downloadFile(): Promise<any> {
+    const result = await this.appService.downloadFile();
     return result;
   }
 }
