@@ -57,7 +57,7 @@ export class S3Service {
     const res = await this.s3instance
       .headObject({
         Bucket: 'test',
-        Key: 'test',
+        Key: 'test-2',
       })
       .promise();
 
@@ -67,14 +67,16 @@ export class S3Service {
       highWaterMark: 100,
       bucketOpts: {
         Bucket: 'test',
-        Key: 'test',
+        Key: 'test-2',
       },
       opts: {},
     });
 
-    const writeStream = createWriteStream('boo.txt', { encoding: 'utf-8' });
+    // const writeStream = createWriteStream('boo.txt', { encoding: 'utf-8' });
 
-    readStream.pipe(writeStream);
+    // readStream.pipe(writeStream);
+
+    return readStream;
   }
 
   async checkBucket() {
