@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Response id="148225359" status="1">
+<Request>
+    <UserIP>255.255.255.0</UserIP>
+    <UserID>bubu</UserID>
+    <requestDateTime>2222.22.22</requestDateTime>
+    <requestType>checkphone</requestType>
+    <sources>hlr</sources>
+    <timeout>300</timeout>
+    <recursive>0</recursive>
+    <async>1</async>
+    <PhoneReq>
+        <phone>+77777777777</phone>
+    </PhoneReq>
+</Request>
+    <Source code="hlr" checktype="hlr_phone" request_id="hlr_phone__0" process_time="0.06">
+        <Name>HLR</Name>
+        <Title>Проверка доступности абонента мобильной связи</Title>
+        <CheckTitle>Проверка доступности абонента мобильной связи</CheckTitle>
+        <Request>hlr_phone 77777777777</Request>
+        <ResultsCount>1</ResultsCount>
+        <Record>
+            <Field>
+                <FieldType>string</FieldType>
+                <FieldName>PhoneNumber</FieldName>
+                <FieldTitle>Номер телефона</FieldTitle>
+                <FieldDescription>Номер телефона</FieldDescription>
+                <FieldValue>77777777777</FieldValue>
+            </Field>
+            <Field>
+                <FieldType>string</FieldType>
+                <FieldName>HLRStatus</FieldName>
+                <FieldTitle>Статус</FieldTitle>
+                <FieldDescription>Статус</FieldDescription>
+                <FieldValue>Доступен</FieldValue>
+            </Field>
+        </Record>
+    </Source>
+</Response>

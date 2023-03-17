@@ -21,6 +21,8 @@ import { MinioDownloadUsecase } from './usecases/minio-download/minio-download.u
 import { S3Service } from './s3/s3.service';
 import { MinioUploadStreamController } from './usecases/minio-upload-stream/minio-upload-stream.controller';
 import { MinioUploadStreamUsecase } from './usecases/minio-upload-stream/minio-upload-stream.usecase';
+import { UploadXmlController } from './usecases/upload-xml/upload-xml.controller';
+import { UploadXmlUsecase } from './usecases/upload-xml/upload.xml.usecase';
 
 @Module({
   imports: [],
@@ -34,6 +36,7 @@ import { MinioUploadStreamUsecase } from './usecases/minio-upload-stream/minio-u
     MinioUploadController,
     MinioDownloadController,
     MinioUploadStreamController,
+    UploadXmlController,
   ],
   providers: [
     AppService,
@@ -48,6 +51,7 @@ import { MinioUploadStreamUsecase } from './usecases/minio-upload-stream/minio-u
     MinioUploadUsecase,
     MinioDownloadUsecase,
     MinioUploadStreamUsecase,
+    UploadXmlUsecase,
     S3Service,
   ],
 })
