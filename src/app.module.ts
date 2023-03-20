@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './usecases/nest-default-prisma/app.controller';
-import { AppService } from './app.service';
 import { PostService } from './usecases/nest-default-prisma/post.service';
 import { PrismaService } from './prisma.service';
 import { UserService } from './usecases/nest-default-prisma/user.service';
@@ -39,7 +38,6 @@ import { UploadXmlUsecase } from './usecases/upload-xml/upload.xml.usecase';
     UploadXmlController,
   ],
   providers: [
-    AppService,
     PostService,
     UserService,
     PrismaService,

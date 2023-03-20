@@ -11,17 +11,34 @@ datasource db {
 }
 
 model User {
-  id    Int     @default(autoincrement()) @id
-  email String  @unique
-  name  String?
-  posts Post[]
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  name    String?
+  posts   Post[]
+  reports Report[]
 }
 
 model Post {
-  id        Int      @default(autoincrement()) @id
+  id        Int      @id @default(autoincrement())
   title     String
   content   String?
   published Boolean? @default(false)
   author    User?    @relation(fields: [authorId], references: [id])
   authorId  Int?
+}
+
+model Report {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String?
+  published Boolean? @default(false)
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  Int?
+  infos     Info[]
+}
+
+model Info {
+  id       Int     @id @default(autoincrement())
+  Report   Report? @relation(fields: [reportId], references: [id])
+  reportId Int?
 }
